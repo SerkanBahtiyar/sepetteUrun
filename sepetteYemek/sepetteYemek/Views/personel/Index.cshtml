@@ -1,0 +1,43 @@
+﻿@using sepetteYemek.Models.siniflar
+@model List<personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Index", "Personel", FormMethod.Get))
+{
+    <p>
+        Ürün Adı : @Html.TextBox("p")
+        <input type="submit" value="ara" />
+    </p>
+
+}
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Personel Ad</th>
+        <th>Soyad</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.PersonelAd</td>
+            <td>@k.PersonelSoyad</td>
+            <td>
+                <img src="@k.PersonelGorsel" style="width:100px;height:70px" />
+            </td>
+            <td>@k.Departman.DepartmanAd</td>
+
+            <td><a href="/personel/personelGetir/@k.Personelid" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/departman/departmanPersonelSatis/@k.Personelid" class="btn btn-success" style="background-color:blueviolet">Detaylar</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/personel/personelEkle" class="btn btn-info">Personel Ekle</a>

@@ -1,0 +1,52 @@
+﻿@using sepetteYemek.Models.siniflar
+@model List<musteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>Müşteri</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+
+            <td>
+                @k.musteriid
+
+            </td>
+            <td>
+                @k.musteriAd
+            </td>
+            <td>
+                @k.musteriSoyad
+            </td>
+            <td>
+                @k.musteriSehir
+            </td>
+            <td>
+                @k.musteriMail
+            </td>
+            <td><a href="/musteri/musteriSil/@k.musteriid" class="btn btn-danger">Sil</a></td>
+            <td><a href="/musteri/musteriGetir/@k.musteriid" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/musteri/musteriSatis/@k.musteriid" class="btn btn-success" style="background-color:blueviolet">Alım Geçmişi</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/musteri/YeniMusteri" class="btn btn-info">Müşteri Ekle</a>
+
+

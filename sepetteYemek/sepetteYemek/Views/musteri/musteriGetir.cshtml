@@ -1,0 +1,32 @@
+﻿@model sepetteYemek.Models.siniflar.musteri
+@{
+    ViewBag.Title = "musteriGetir";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+<br />
+<h2>Müşteri Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("musteriGuncelle", "musteri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(s => s.musteriAd)
+        @Html.TextBoxFor(s => s.musteriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.musteriAd, "", new { @style = "color:red" })
+        <br />
+        @Html.LabelFor(s => s.musteriSoyad)
+        @Html.TextBoxFor(s => s.musteriSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.musteriSoyad, "", new { @style = "color:red" })
+        <br />
+        @Html.LabelFor(s => s.musteriSehir)
+        @Html.TextBoxFor(s => s.musteriSehir, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(s => s.musteriMail)
+        @Html.TextBoxFor(s => s.musteriMail, new { @class = "form-control" })
+        <br />
+        @Html.HiddenFor(s => s.musteriid)
+    </div>
+    <button class="btn btn-info"> Güncelle</button>
+}

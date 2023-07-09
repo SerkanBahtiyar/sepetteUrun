@@ -1,0 +1,36 @@
+﻿@model sepetteYemek.Models.siniflar.musteri
+@{
+    ViewBag.Title = "YeniMusteri";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Müşteri Sayfası</h2>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(s => s.musteriAd)
+    @Html.TextBoxFor(s => s.musteriAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(s => s.musteriSoyad)
+    @Html.TextBoxFor(s => s.musteriSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(s => s.musteriSehir)
+    @Html.TextBoxFor(s => s.musteriSehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(s => s.musteriMail)
+    @Html.TextBoxFor(s => s.musteriMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="Btn1">Kaydet</button>
+
+    <script>
+        $('#Btn1').click(function () {
+            alert("Müşteri başarılı bir şekilde eklendi")
+        }
+        );
+    </script>
+
+</form>
+
+

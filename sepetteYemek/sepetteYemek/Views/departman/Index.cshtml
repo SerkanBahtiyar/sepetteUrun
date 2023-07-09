@@ -1,0 +1,35 @@
+﻿@using sepetteYemek.Models.siniflar
+@model  List<departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Bilgiler</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+
+
+            <td>
+                @k.DepartmanAd
+            </td>
+            <td><a href="/departman/DepartmanSil/@k.Departmanid" class="btn btn-danger">Sil</a></td>
+            <td><a href="/departman/DepartmanGetir/@k.Departmanid" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/departman/DepartmanDetay/@k.Departmanid" class="btn btn-success" style="background-color:blueviolet">Bilgiler</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="/departman/DepartmanEkle" class="btn btn-info">Departman Ekle</a>
+
+
+
